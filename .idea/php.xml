@@ -109,6 +109,14 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/kraken-php/event" />
+      <path value="$PROJECT_DIR$/vendor/kraken-php/loop" />
+      <path value="$PROJECT_DIR$/vendor/kraken-php/stream" />
+      <path value="$PROJECT_DIR$/vendor/kraken-php/throwable" />
+      <path value="$PROJECT_DIR$/vendor/kraken-php/util" />
+      <path value="$PROJECT_DIR$/vendor/dazzle-php/socket" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/vendor/endclothing/prometheus_client_php" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
