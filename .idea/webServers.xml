@@ -9,6 +9,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="ebdc40ae-96c1-4d02-b4a1-1d59376d56d3" name="192.168.1.15" url="http://192.168.1.15/">
+        <fileTransfer accessType="SFTP" host="192.168.1.15" port="22" sshConfigId="e468f1ce-230b-4843-9958-0f4ac5516fcf" sshConfig="ubuntu@192.168.1.15:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
