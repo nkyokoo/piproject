@@ -18,15 +18,14 @@
             </v-app-bar>
 
         <v-main>
-
+            <v-container>
             <div>
                 <v-card>
-                    <v-card-text>
-                        hello world
+                    <canvas id="Chart" ></canvas>
 
-                    </v-card-text>
                 </v-card>
             </div>
+            </v-container>
         </v-main>
     </v-app>
 </div>
@@ -34,17 +33,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-<script>
-    new Vue({
-        el: '#app',
-        vuetify: new Vuetify(),
-        data() {
-            return {
-
-            }
-        }
-    })
-</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 <footer>
 
