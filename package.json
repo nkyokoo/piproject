@@ -1,0 +1,24 @@
+{
+  "name": "piproject",
+  "version": "1.0.0",
+  "description": "socket server for handling mbed input",
+  "main": "server.js",
+  "dependencies": {
+    "influx": "^5.6.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkyokoo/piproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nkyokoo/piproject/issues"
+  },
+  "homepage": "https://github.com/nkyokoo/piproject#readme"
+}
