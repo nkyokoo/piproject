@@ -40,4 +40,4 @@
 
 </footer>
 </html>
-<?php
+
