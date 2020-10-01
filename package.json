@@ -1,24 +1,79 @@
 {
-  "name": "piproject",
-  "version": "1.0.0",
-  "description": "socket server for handling mbed input",
-  "main": "server.js",
-  "dependencies": {
-    "influx": "^5.6.3"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nkyokoo/piproject.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nkyokoo/piproject/issues"
-  },
-  "homepage": "https://github.com/nkyokoo/piproject#readme"
+    "name": "piproject",
+    "version": "1.0.0",
+    "description": "socket server for handling mbed input",
+    "main": "server.js",
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.17",
+        "@fortawesome/free-brands-svg-icons": "^5.8.1",
+        "@fortawesome/free-regular-svg-icons": "^5.8.1",
+        "@fortawesome/free-solid-svg-icons": "^5.8.1",
+        "@fortawesome/vue-fontawesome": "^0.1.6",
+        "axios": "^0.18.1",
+        "chart.js": "^2.9.3",
+        "express": "^4.17.1",
+        "influx": "^5.6.3",
+        "jquery": "^3.4.1",
+        "js-cookie": "^2.2.0",
+        "popper.js": "^1.15.0",
+        "socket.io": "^2.3.0",
+        "socket.io-client": "^2.3.0",
+        "sweetalert2": "^8.10.0",
+        "vform": "^1.0.0",
+        "vue": "^2.6.10",
+        "vue-chartjs": "^3.5.1",
+        "vue-i18n": "^8.11.2",
+        "vue-meta": "^1.6.0",
+        "vue-router": "^3.0.6",
+        "vue-socket.io": "^3.0.10",
+        "vuetify": "^2.3.10",
+        "vuex": "^3.1.0",
+        "vuex-router-sync": "^5.0.0"
+    },
+    "devDependencies": {
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/preset-env": "^7.4.4",
+        "axios": "^0.19.2",
+        "babel-eslint": "^10.0.1",
+        "cross-env": "^7.0",
+        "eslint": "^5.16.0",
+        "eslint-config-standard": "^12.0.0",
+        "eslint-plugin-import": "^2.17.2",
+        "eslint-plugin-node": "^9.0.1",
+        "eslint-plugin-promise": "^4.1.1",
+        "eslint-plugin-standard": "^4.0.0",
+        "eslint-plugin-vue": "^5.2.2",
+        "fibers": "^5.0.0",
+        "laravel-mix": "^5.0.1",
+        "laravel-mix-versionhash": "^1.0.7",
+        "lodash": "^4.17.19",
+        "resolve-url-loader": "^3.1.0",
+        "sass": "^1.20.1",
+        "sass-loader": "^7.1.0",
+        "vue-template-compiler": "^2.6.12",
+        "vuetify-loader": "^1.6.0",
+        "vuetifyjs-mix-extension": "0.0.14",
+        "webpack-bundle-analyzer": "^3.3.2"
+    },
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nkyokoo/piproject.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/nkyokoo/piproject/issues"
+    },
+    "homepage": "https://github.com/nkyokoo/piproject#readme"
 }

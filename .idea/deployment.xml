@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="192.168.1.15" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="192.168.1.12" autoUploadExternalChanges="true">
     <serverData>
-      <paths name="10.130.54.33">
+      <paths name="10.130.54.25">
         <serverdata>
           <mappings>
             <mapping deploy="/var/www/piproject" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="192.168.1.15">
+      <paths name="192.168.1.12">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/var/www/piproject" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

@@ -1,5 +1,10 @@
 const net = require("net")
 const Influx = require('influx');
+const io = require('socket.io-client')
+
+const ws = io()
+ws.connect("ws://localhost:3000")
+
 const influx = new Influx.InfluxDB({
     host: 'localhost',
     database: 'piproject',
@@ -7,10 +12,34 @@ const influx = new Influx.InfluxDB({
         {
             measurement: 'temperature',
             fields: {
+                value: Influx.FieldType.INTEGER,
+            },
+            tags: [
+                'mbed_controller_id',
+                'room',
+                'building'
+            ]
+        },
+        {
+            measurement: 'light',
+            fields: {
                 value: Influx.FieldType.FLOAT,
             },
             tags: [
-                'mbed_controller_id'
+                'mbed_controller_id',
+                'room',
+                'building'
+            ]
+        },
+        {
+            measurement: 'sound',
+            fields: {
+                value: Influx.FieldType.INTEGER,
+            },
+            tags: [
+                'mbed_controller_id',
+                'room',
+                'building'
             ]
         }
     ]
@@ -26,19 +55,50 @@ const server = net.createServer((socket) => {
            parsedData  = JSON.parse(data)
 
         }catch (e){
+            console.log(e)
         }
-  /*      try{
-            influx.writePoints([
-                {
-                    measurement: 'temperature',
-                    tags: { mbed_controller_id:parsedData.mbed_controller_id },
-                    fields: { value:parsedData.value },
+     try{
+            switch (parsedData.type){
+                case 'temp':
+                    influx.writePoints([
+                        {
+                            measurement: 'temperature',
+                            tags: { mbed_controller_id:parsedData.mbed_controller_id,room:parsedData.room, building:parsedData.building},
+                            fields: { value:parsedData.value },
 
-                }
-            ])
+                        }
+                    ])
+                    break;
+                case 'light':
+                    influx.writePoints([
+                        {
+                            measurement: 'light',
+                            tags: { mbed_controller_id:parsedData.mbed_controller_id,room:parsedData.room, building:parsedData.building},
+                            fields: { value:parsedData.value },
+
+                        }
+                    ])
+                    break;
+                case 'sound':
+                    influx.writePoints([
+                        {
+                            measurement: 'sound',
+                            tags: { mbed_controller_id:parsedData.mbed_controller_id,room:parsedData.room, building:parsedData.building},
+                            fields: { value:parsedData.value },
+
+                        }
+                    ])
+                    break;
+            }
+
+         ws.on("connection", (socket) => {
+             socket.emit('NEW_DATA', {'newdata':"newdata"});
+             console.log("connected client")
+         })
+
         }catch (e){
             console.log(e)
-        }*/
+        }
 
     })
 
@@ -46,8 +106,6 @@ const server = net.createServer((socket) => {
     console.error(err);
 })
 
-server.listen({
-    host: '192.168.1.15',
-    port: 2080},() => {
+server.listen({ port: 2080 },() => {
     console.log('opened server on', server.address());
 })

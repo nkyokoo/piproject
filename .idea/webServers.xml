@@ -2,15 +2,15 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="03f1bb1f-aeba-47a0-83a2-fc75ada491b9" name="10.130.54.33" url="http://10.130.54.33">
-        <fileTransfer accessType="SFTP" host="10.130.54.33" port="22" sshConfigId="fa7ed8b9-0bbb-49bb-972f-176254e29633" sshConfig="ubuntu@10.130.54.33:22 password">
+      <webServer id="03f1bb1f-aeba-47a0-83a2-fc75ada491b9" name="10.130.54.25" url="http://10.130.54.25">
+        <fileTransfer accessType="SFTP" host="10.130.54.25" port="22" sshConfigId="fa7ed8b9-0bbb-49bb-972f-176254e29633" sshConfig="ubuntu@10.130.54.25:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>
-      <webServer id="ebdc40ae-96c1-4d02-b4a1-1d59376d56d3" name="192.168.1.15" url="http://192.168.1.15/">
-        <fileTransfer accessType="SFTP" host="192.168.1.15" port="22" sshConfigId="e468f1ce-230b-4843-9958-0f4ac5516fcf" sshConfig="ubuntu@192.168.1.15:22 password">
+      <webServer id="ebdc40ae-96c1-4d02-b4a1-1d59376d56d3" name="192.168.1.12" url="http://192.168.1.14/">
+        <fileTransfer accessType="SFTP" host="192.168.1.12" port="22" sshConfigId="e468f1ce-230b-4843-9958-0f4ac5516fcf" sshConfig="ubuntu@192.168.1.12:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
