@@ -2,9 +2,9 @@ const net = require("net")
 const Influx = require('influx');
 const io = require('socket.io-client')
 
-const ws = io()
-ws.connect("ws://localhost:3000")
+const ws = io("ws://localhost:3000")// connect to websocket
 
+// connect to influxdb with options and create schema
 const influx = new Influx.InfluxDB({
     host: 'localhost',
     database: 'piproject',
@@ -46,9 +46,9 @@ const influx = new Influx.InfluxDB({
 })
 
 const server = net.createServer((socket) => {
-    socket.setEncoding('utf8');
+    socket.setEncoding('utf8'); // set encoding to be utf8 so the server can read data properly
     socket.write('SERVER: Hello! This is server speaking.');
-    socket.on("data", (data) => {
+    socket.on("data", (data) => { // listen to data
         console.log(data)
         let parsedData = {}
         try {
@@ -58,6 +58,7 @@ const server = net.createServer((socket) => {
             console.log(e)
         }
      try{
+            //write data to measurement based on type
             switch (parsedData.type){
                 case 'temp':
                     influx.writePoints([
@@ -108,4 +109,4 @@ const server = net.createServer((socket) => {
 
 server.listen({ port: 2080 },() => {
     console.log('opened server on', server.address());
-})
+}) // open server on 2080

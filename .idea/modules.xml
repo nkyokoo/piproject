@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/piproject.iml" filepath="$PROJECT_DIR$/.idea/piproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../piproject-frontend/.idea/piproject-frontend.iml" filepath="$PROJECT_DIR$/../piproject-frontend/.idea/piproject-frontend.iml" />
     </modules>
   </component>
 </project>

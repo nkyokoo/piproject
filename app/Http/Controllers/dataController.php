@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use InfluxDB\Client;
 
 class dataController extends Controller
 {
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * gets temperature data
+     * @return Response json data
      * @throws \Exception
      */
     function getTemperature(){
@@ -30,17 +32,19 @@ class dataController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * gets sound data
+     * @return Response json data
      * @throws \Exception
      */
     function getSound(){
 
-        $client = new Client("localhost", 8086);
+        $client = new Client("localhost", 8086); // create new influx client and connect it
         $database = $client->selectDB('piproject');
 
         try {
+            // call sql query to influx get data
             $result = $database->query('select * from sound ORDER BY time DESC LIMIT 20;');
-            $points = $result->getPoints();
+            $points = $result->getPoints(); //get points out of data
 
             $data = json_encode($points);
 
@@ -51,7 +55,8 @@ class dataController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * gets light data
+     * @return Response json data
      * @throws \Exception
      */
     function getLight(){
