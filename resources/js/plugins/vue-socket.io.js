@@ -4,5 +4,5 @@ import VueSocketIO from "vue-socket.io"
 
 export default new VueSocketIO({
     debug: true,
-    connection: 'ws://192.168.1.12:3000',
+    connection: 'ws://10.130.54.90:3000',
 })

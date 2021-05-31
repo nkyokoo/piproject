@@ -12,6 +12,22 @@
                             + " room: " + this.lightData[0].room
                         }}</v-card-title>
                     <Chart class="MonitoringChart" v-if="loaded" :chart-data="dataset" :options="options" :loaded="this.loaded"></Chart>
+                    <v-card-actions>
+                        <v-item-group>
+                            <v-btn @click="setChartScale('2h')">
+                                Past 2 hr
+                            </v-btn>
+                            <v-btn @click="setChartScale('1h')">
+                                Past 1 hr
+                            </v-btn>
+                            <v-btn @click="setChartScale('30m')">
+                                Past 30 min
+                            </v-btn>
+                            <v-btn @click="setChartScale('10m')">
+                                Past 10 min
+                            </v-btn>
+                        </v-item-group>
+                    </v-card-actions>
                 </v-card>
             </v-col>
             <v-col sm>
@@ -33,7 +49,7 @@ export default {
             loaded:false,
             lightData: [],
             formattedData: {
-                soundTime: [],
+                lightTime: [],
                 values: [],
 
             },
@@ -76,7 +92,7 @@ export default {
     },
     methods: {
         async InitialiseChart() {
-            await axios.get('api/data/light').then(res => {
+            await axios.get('api/data/light?scale=5h').then(res => {
                 this.lightData = res.data
                 this.formatData()
             }).catch(error => {
@@ -87,21 +103,28 @@ export default {
 
         formatData() {
             for (let item of this.lightData) {
-                this.formattedData.soundTime.push(moment(item.time).format("DD-MM-YY HH:mm:ss"))
+                this.formattedData.lightTime.push(moment(item.time).format("DD-MM-YY HH:mm:ss"))
                 this.formattedData.values.push(item.value)
             }
-            this.dataset.labels = this.formattedData.soundTime
+            this.dataset.labels = this.formattedData.lightTime
             this.dataset.datasets[0].data = this.formattedData.values
             this.loaded = true
 
         },
-        async getData() {
-            await axios.get('/api/data/light').then(res => {
+        async getData(type) {
+            this.formattedData.lightTime = []
+            this.formattedData.values = []
+            await axios.get(`/api/data/light?scale=${type}`).then(res => {
+                this.formatData.lightTime = []
+                this.formatData.values = []
                 this.lightData = res.data
+                this.formatData()
             }).catch(error => {
                 alert(error)
             })
-            this.formatData()
+        },
+        setChartScale(type){
+            this.getData(type)
         }
     },
     watch: {},

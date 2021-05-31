@@ -1,22 +1,22 @@
 <script>
 import { Line, mixins } from 'vue-chartjs'
-const { reactiveProp } = mixins
 
 export default {
     extends: Line,
     name:"chart",
-    mixins: [reactiveProp],
-    props: ['data', "options", "loaded"],
-    data(){
-        return {
-
+    props: ["chartData","options"],
+    computed:{
+        dataLength(){
+            return this.chartData.datasets[0].data.length;
         }
     },
+    watch:{
+      dataLength(){
+          this.$data._chart.update()
+      }
+    },
     mounted () {
-        if(this.loaded){
-            console.info(this.options)
-            this.renderChart(this.chartData, this.options)
-        }
+        this.renderChart(this.chartData, this.options)
     }
 }
 </script>

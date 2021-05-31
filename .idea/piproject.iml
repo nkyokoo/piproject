@@ -145,6 +145,5 @@
     <orderEntry type="library" name="@mdi/font" level="application" />
     <orderEntry type="library" name="@types/socket.io" level="application" />
     <orderEntry type="library" name="@types/socket.io-client" level="application" />
-    <orderEntry type="module" module-name="piproject-frontend" />
   </component>
 </module>

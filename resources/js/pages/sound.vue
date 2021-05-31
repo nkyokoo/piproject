@@ -12,6 +12,22 @@
                             + " room: " + this.soundData[0].room
                         }}</v-card-title>
                     <Chart class="MonitoringChart" v-if="loaded" :chart-data="dataset" :options="options" :loaded="this.loaded"></Chart>
+                    <v-card-actions>
+                        <v-item-group>
+                            <v-btn @click="setChartScale('2h')">
+                                Past 2 hr
+                            </v-btn>
+                            <v-btn @click="setChartScale('1h')">
+                                Past 1 hr
+                            </v-btn>
+                            <v-btn @click="setChartScale('30m')">
+                                Past 30 min
+                            </v-btn>
+                            <v-btn @click="setChartScale('10m')">
+                                Past 10 min
+                            </v-btn>
+                        </v-item-group>
+                    </v-card-actions>
                 </v-card>
             </v-col>
             <v-col sm>
@@ -77,7 +93,7 @@ export default {
     },
     methods: {
         async InitialiseChart() {
-            await axios.get('api/data/sound').then(res => {
+            await axios.get('api/data/sound?scale=5h').then(res => {
                 this.soundData = res.data
                 this.formatData()
             }).catch(error => {
@@ -96,12 +112,17 @@ export default {
             this.loaded = true
 
         },
-        async getData() {
-            await axios.get('/api/data/sound').then(res => {
+        async getData(type) {
+            this.formattedData.soundTime = []
+            this.formattedData.values = []
+            await axios.get(`/api/data/sound?scale=${type}`).then(res => {
                 this.soundData = res.data
             }).catch(error => {
             })
             this.formatData()
+        },
+        setChartScale(type){
+            this.getData(type)
         }
     },
     watch: {},
